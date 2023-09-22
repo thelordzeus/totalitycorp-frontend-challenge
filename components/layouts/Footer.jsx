@@ -8,31 +8,19 @@ export default function Footer() {
               href="#"
               className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
             >
+              Home
+            </a>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
+              Products
+            </a>
+            <a
+              href="#"
+              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
+            >
               About
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Investor Relations
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Jobs
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Press
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
-            >
-              Blog
             </a>
           </nav>
 
@@ -108,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="py-8 text-center text-sm text-gray-400">
-          © 2021 - Present Flowrift. All rights reserved.
+          © 2023 - Present Sneaks. All rights reserved.
         </div>
       </footer>
     </div>
