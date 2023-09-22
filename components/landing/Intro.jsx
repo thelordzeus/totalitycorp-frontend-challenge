@@ -1,82 +1,48 @@
-import { LANDINGPAGE } from "@/utils/constant";
 import Image from "next/image";
 import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <main className="mx-auto flex min-h-screen w-full flex-col items-center justify-start md:w-[90%] md:flex-row lg:w-[85%] xl:w-[80%] 2xl:w-[70%]">
-      <section className="flex w-[80%] flex-col items-center text-center md:w-[50%] md:items-start md:text-left">
-        <h1 className="mt-[5%] font-primaryFont text-[9vw] text-primaryText md:mt-[0%] md:text-[4.2vw]">
-          <p>
-            {LANDINGPAGE.TITLE_P1}
-            <span className="ml-[1%] font-secondaryFont">
-              {LANDINGPAGE.TITLE_P2}
-            </span>
-          </p>
-          <p>{LANDINGPAGE.TITLE_P3}</p>
-        </h1>
-        <div className="font-base my-[7%] flex w-fit text-center text-sm">
-          <div className="flex max-w-[120px] flex-col items-center">
-            <div>
-              <Image
-                width={60}
-                height={60}
-                src={"/assets/prop1.svg"}
-                alt="ASGS Supermarket"
-                unoptimized
-              />
+    <main>
+      <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
+        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <section className="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
+            <img
+              src="https://images.unsplash.com/photo-1618004652321-13a63e576b80?auto=format&q=75&fit=crop&w=1500"
+              loading="lazy"
+              alt="Photo by Fakurian Design"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+
+            <div className="absolute inset-0 bg-indigo-500 mix-blend-multiply"></div>
+
+            <div className="relative flex flex-col items-center p-4 sm:max-w-xl">
+              <p className="mb-4 text-center text-lg text-indigo-200 sm:text-xl md:mb-8">
+                Very proud to introduce
+              </p>
+              <h1 className="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">
+                Revolutionary way to build the web
+              </h1>
+
+              <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
+                <a
+                  href="#"
+                  className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+                >
+                  Start now
+                </a>
+
+                <a
+                  href="#"
+                  className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
+                >
+                  Take tour
+                </a>
+              </div>
             </div>
-            <p className="mt-[5%] font-secondaryFont text-primaryText">
-              {LANDINGPAGE.SUB_TITLE_1}
-            </p>
-          </div>
-          <div className="mx-[5%] flex max-w-[120px]  flex-col items-center">
-            <div>
-              <Image
-                width={60}
-                height={60}
-                src={"/assets/prop2.svg"}
-                alt="ASGS Supermarket"
-                unoptimized
-              />
-            </div>
-            <p className="mt-[5%] font-secondaryFont text-primaryText">
-              {LANDINGPAGE.SUB_TITLE_2}
-            </p>
-          </div>
-          <div className="flex max-w-[120px] flex-col items-center ">
-            <div>
-              <Image
-                width={72}
-                height={72}
-                src={"/assets/prop3.svg"}
-                alt="ASGS Supermarket"
-              />
-            </div>
-            <p className="mt-[5%] font-secondaryFont text-primaryText">
-              {LANDINGPAGE.SUB_TITLE_3}
-            </p>
-          </div>
+          </section>
         </div>
-        <Link
-          href="/products"
-          className="w-fit rounded-md border border-primaryText bg-secondaryBg px-[8%] py-[3%] font-secondaryFont text-primaryText transition-all duration-300 hover:border-secondaryBg hover:bg-primaryText hover:text-secondaryBg"
-        >
-          {LANDINGPAGE.BUTTON}
-        </Link>
-      </section>
-      <section className="w-[90%] md:w-[50%]">
-        <div className="p-[3%]">
-          <Image
-            className="h-auto w-full rounded-t-full border-4 border-secondaryBg"
-            src={"/assets/bg.jpg"}
-            alt=""
-            width={72}
-            height={72}
-            unoptimized
-          />
-        </div>
-      </section>
+      </div>
     </main>
   );
 };
