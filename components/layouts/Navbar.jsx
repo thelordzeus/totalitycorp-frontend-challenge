@@ -41,23 +41,31 @@ export default function Navbar() {
             </Link>
           </nav>
         </div>
-        <a
-          href="#"
+        <Link
+          href="/cart"
           className="hidden rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block"
         >
           <div className="flex space-x-2">
             <AiOutlineShoppingCart className="h-auto w-4" />
             <span>Cart</span>
           </div>
-        </a>
+        </Link>
         <div className="lg:hidden rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
           <DropdownMenu>
             <DropdownMenuTrigger>Open</DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem>Home</DropdownMenuItem>
-              <DropdownMenuItem>Products</DropdownMenuItem>
-              <DropdownMenuItem>About</DropdownMenuItem>
-              <DropdownMenuItem>Cart</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/">Home</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/products">Products</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/cart">Cart</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/about">About Us</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
