@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -23,21 +24,21 @@ export default function Navbar() {
         </a>
         <div className="hidden lg:block">
           <nav className="  gap-12 lg:flex">
-            <a href="#" className="text-lg font-semibold text-indigo-500">
+            <Link href="/" className="text-lg font-semibold text-indigo-500">
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/products"
               className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
             >
               Products
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/about"
               className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
             >
               About
-            </a>
+            </Link>
           </nav>
         </div>
         <a
