@@ -35,18 +35,19 @@ export default function Products() {
             Explore our wide range of collection
           </h2>
 
-          <button
-            className="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base"
-            onClick={handleSortAscending}
-          >
-            Sort by Price (Low to High)
-          </button>
-          <button
-            className="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base"
-            onClick={handleSortDescending}
-          >
-            Sort by Price (High to Low)
-          </button>
+          <div className="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">
+            <DropdownMenu>
+              <DropdownMenuTrigger>Filter</DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <button onClick={handleSortDescending}>High to Low</button>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <button onClick={handleSortAscending}>Low to High</button>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
 
         <ul className="grid gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4">
