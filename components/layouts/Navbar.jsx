@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 
-export default function Navbar() {
+export const Navbar = () => {
   return (
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
       <header className="mb-4 flex items-center justify-between py-4 md:py-8">
@@ -72,4 +72,4 @@ export default function Navbar() {
       </header>
     </div>
   );
-}
+};

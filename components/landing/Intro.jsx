@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const LandingPage = () => {
+export const LandingPage = () => {
   return (
     <main>
       <div className="bg-white pb-6 sm:pb-8 lg:pb-12">

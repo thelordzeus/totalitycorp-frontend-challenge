@@ -1,5 +1,5 @@
 "use client";
-import PRODUCTS from "@/data/products";
+import { PRODUCTS } from "../../data/products";
 import React, { useState } from "react";
 import {
   DropdownMenu,

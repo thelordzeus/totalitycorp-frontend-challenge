@@ -1,5 +1,4 @@
-import LandingPage from "@/components/landing/Intro";
-import Image from "next/image";
+import LandingPage from "../components/landing/Intro";
 
 export default function Home() {
   return (
