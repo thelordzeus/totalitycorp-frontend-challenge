@@ -1,14 +1,17 @@
 "use client";
 import { PRODUCTS } from "../../data/products";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import CartContext from "../../context/CartContext";
 
 export default function Products() {
+  const { addItemToCart } = useContext(CartContext);
+
   const [filteredProducts, setFilteredProducts] = useState(PRODUCTS);
   const [sortOrder, setSortOrder] = useState("ascending");
 
@@ -24,6 +27,15 @@ export default function Products() {
     setFilteredProducts(sorted);
     console.log(sorted);
     setSortOrder("descending");
+  };
+
+  const addToCardHandler = (product) => {
+    addItemToCart({
+      product: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.imageSrc,
+    });
   };
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -82,7 +94,10 @@ export default function Products() {
                     </span>
                   </div>
                   <div>
-                    <button className="rounded-lg bg-gray-200 w-full px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block">
+                    <button
+                      className="rounded-lg bg-gray-200 w-full px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block"
+                      onClick={addToCardHandler(product)}
+                    >
                       Add to Cart
                     </button>
                   </div>
