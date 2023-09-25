@@ -31,7 +31,7 @@ export default function Products() {
 
   const addToCardHandler = (product) => {
     addItemToCart({
-      product: product.id,
+      product: product._id,
       name: product.name,
       price: product.price,
       image: product.imageSrc,
