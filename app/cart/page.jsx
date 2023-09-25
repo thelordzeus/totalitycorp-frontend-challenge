@@ -1,9 +1,12 @@
 "use client";
+
 import CartContext from "../../context/CartContext";
 import React, { useContext } from "react";
 
 export default function Cart() {
   const { addItemToCart, cart } = useContext(CartContext);
+
+  console.log(cart);
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-lg px-4 md:px-8">
@@ -12,11 +15,11 @@ export default function Cart() {
             Your Cart
           </h2>
         </div>
-        {cart?.cartItems?.length > 0 && (
+        {cart?.length > 0 && (
           <section>
             <div className="mb-5 flex flex-col sm:mb-8 sm:divide-y sm:border-t sm:border-b">
-              {cart?.cartItems?.map((cartItem) => (
-                <div className="py-5 sm:py-8">
+              {cart?.map((cartItem) => (
+                <div className="py-5 sm:py-8" key={cartItem.id}>
                   <div className="flex flex-wrap gap-4 sm:py-2.5 lg:gap-6">
                     <div className="sm:-my-2.5">
                       <a

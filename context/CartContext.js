@@ -35,21 +35,19 @@ export const CartProvider = ({ children }) => {
       quantity,
     };
 
-    const isItemExist = cart?.cartItems?.find(
-      (i) => i.product === item.product
-    );
+    const isItemExist = cart?.find((i) => i.product === item.product);
 
     let newCartItems;
 
     if (isItemExist) {
-      newCartItems = cart?.cartItems?.map((i) =>
+      newCartItems = cart?.map((i) =>
         i.product === isItemExist.product ? item : i
       );
     } else {
-      newCartItems = [...(cart?.cartItems || []), item];
+      newCartItems = [...cart, item];
     }
 
-    localStorage.setItem("cart", JSON.stringify({ cartItems: newCartItems }));
+    localStorage.setItem("cart", JSON.stringify(newCartItems));
     setCartToState();
   };
 

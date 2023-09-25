@@ -96,7 +96,7 @@ export default function Products() {
                   <div>
                     <button
                       className="rounded-lg bg-gray-200 w-full px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block"
-                      onClick={addToCardHandler(product)}
+                      onClick={() => addToCardHandler(product)}
                     >
                       Add to Cart
                     </button>
