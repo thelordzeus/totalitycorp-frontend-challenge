@@ -1,6 +1,6 @@
 # Snicks - Your Online Shoe Store
 
-Welcome to Snicks, your one-stop destination for the latest and trendiest shoes! Snicks is an e-commerce website built using **Next.js 13**, **Tailwind CSS**, **ShadCN UI**, and managed with the **pnpm** package manager.
+Welcome to Snicks, your one-stop destination for the latest and trendiest shoes! Snicks is an e-commerce website.
 
 ## Tech Stack
 
@@ -69,7 +69,3 @@ Snicks is designed to provide a seamless shopping experience for shoe enthusiast
 - Snicks uses context to manage the shopping cart. When you click "Add to Cart," the app updates the cart context, reflecting the added item.
 - The cart context ensures that your selected items are preserved as you navigate through the app.
 - You can easily remove items from the cart or update quantities before proceeding to checkout.
-
-```
-
-```
