@@ -40,9 +40,13 @@ export const CartProvider = ({ children }) => {
     let newCartItems;
 
     if (isItemExist) {
-      newCartItems = cart?.map((i) =>
-        i.product === isItemExist.product ? item : i
-      );
+      newCartItems = cart?.map((i) => {
+        // i.product === isItemExist.product ? item : i
+        if (i.product === isItemExist.product) {
+          return { ...item, quantity: ++i.quantity };
+        }
+        return { ...i };
+      });
     } else {
       newCartItems = [...cart, item];
     }

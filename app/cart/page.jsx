@@ -45,7 +45,7 @@ export default function Cart() {
                       </div>
                       <div>
                         <span className="mb-1 block font-bold text-gray-800 md:text-lg">
-                          ${cartItem.price}
+                          Quantity: {cartItem.quantity}
                         </span>
                         <span className="flex items-center gap-1 text-sm text-gray-500">
                           <svg
