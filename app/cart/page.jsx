@@ -3,6 +3,14 @@
 import CartContext from "../../context/CartContext";
 import React, { useContext } from "react";
 
+function calculateSubtotal(cart) {
+  let subtotal = 0;
+  for (const cartItem of cart) {
+    subtotal += cartItem.price * cartItem.quantity;
+  }
+  return subtotal;
+}
+
 export default function Cart() {
   const { addItemToCart, cart, deleteItemFromCart } = useContext(CartContext);
 
@@ -21,6 +29,8 @@ export default function Cart() {
 
     addItemToCart(item);
   };
+
+  const subtotal = calculateSubtotal(cart);
 
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -128,7 +138,7 @@ export default function Cart() {
                 <div className="space-y-1">
                   <div className="flex justify-between gap-4 text-gray-500">
                     <span>Subtotal</span>
-                    <span>$129.99</span>
+                    <span>{subtotal}</span>
                   </div>
                   <div className="flex justify-between gap-4 text-gray-500">
                     <span>Shipping</span>
@@ -139,7 +149,9 @@ export default function Cart() {
                   <div className="flex items-start justify-between gap-4 text-gray-800">
                     <span className="text-lg font-bold">Total</span>
                     <span className="flex flex-col items-end">
-                      <span className="text-lg font-bold">$134.98 USD</span>
+                      <span className="text-lg font-bold">
+                        {subtotal + 4.99} USD
+                      </span>
                       <span className="text-sm text-gray-500">
                         including VAT
                       </span>
