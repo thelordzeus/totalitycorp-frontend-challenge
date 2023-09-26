@@ -4,9 +4,24 @@ import CartContext from "../../context/CartContext";
 import React, { useContext } from "react";
 
 export default function Cart() {
-  const { addItemToCart, cart } = useContext(CartContext);
+  const { addItemToCart, cart, deleteItemFromCart } = useContext(CartContext);
 
-  console.log(cart);
+  const increaseQty = (cartItem) => {
+    const newQty = cartItem?.quantity + 1;
+    const item = { ...cartItem, quantity: newQty };
+
+    addItemToCart(item);
+  };
+
+  const decreaseQty = (cartItem) => {
+    const newQty = cartItem?.quantity - 1;
+    const item = { ...cartItem, quantity: newQty };
+
+    if (newQty <= 0) return;
+
+    addItemToCart(item);
+  };
+
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-lg px-4 md:px-8">
@@ -19,7 +34,7 @@ export default function Cart() {
           <section>
             <div className="mb-5 flex flex-col sm:mb-8 sm:divide-y sm:border-t sm:border-b">
               {cart?.map((cartItem) => (
-                <div className="py-5 sm:py-8" key={cartItem.id}>
+                <div className="py-5 sm:py-8" key={cartItem.product}>
                   <div className="flex flex-wrap gap-4 sm:py-2.5 lg:gap-6">
                     <div className="sm:-my-2.5">
                       <a
@@ -66,24 +81,35 @@ export default function Cart() {
                         </span>
                       </div>
                     </div>
-                    <div className="flex w-full justify-between border-t pt-4 sm:w-auto sm:border-none sm:pt-0">
-                      <div className="flex flex-col items-start gap-2">
-                        <div className="flex h-12 w-20 overflow-hidden rounded border">
+                    <div className="flex w-full justify-between items-center border-t pt-4 sm:w-auto sm:border-none sm:pt-0">
+                      <div className="w-24 flex flex-col ">
+                        <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
+                          <button
+                            data-action="decrement"
+                            className=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
+                            onClick={() => decreaseQty(cartItem)}
+                          >
+                            <span className="m-auto text-2xl font-thin">−</span>
+                          </button>
                           <input
                             type="number"
+                            className=" focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-base cursor-default flex items-center text-gray-900  outline-none custom-input-number"
+                            name="custom-input-number"
                             value={cartItem.quantity}
-                            className="w-full px-4 py-2 outline-none ring-inset ring-indigo-300 transition duration-100 focus:ring"
-                          />
-                          <div className="flex flex-col divide-y border-l">
-                            <button className="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">
-                              +
-                            </button>
-                            <button className="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">
-                              -
-                            </button>
-                          </div>
+                            readOnly
+                          ></input>
+                          <button
+                            data-action="increment"
+                            className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
+                            onClick={() => increaseQty(cartItem)}
+                          >
+                            <span className="m-auto text-2xl font-thin">+</span>
+                          </button>
                         </div>
-                        <button className="select-none text-sm font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">
+                        <button
+                          className="select-none text-sm font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700 mx-auto mt-3"
+                          onClick={() => deleteItemFromCart(cartItem?.product)}
+                        >
                           Delete
                         </button>
                       </div>

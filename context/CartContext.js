@@ -41,7 +41,6 @@ export const CartProvider = ({ children }) => {
 
     if (isItemExist) {
       newCartItems = cart?.map((i) => {
-        // i.product === isItemExist.product ? item : i
         if (i.product === isItemExist.product) {
           return { ...item, quantity: ++i.quantity };
         }
@@ -55,11 +54,17 @@ export const CartProvider = ({ children }) => {
     setCartToState();
   };
 
+  const deleteItemFromCart = (id) => {
+    const newCartItems = cart?.filter((i) => i.product !== id);
+    localStorage.setItem("cart", JSON.stringify(newCartItems));
+    setCartToState();
+  };
   return (
     <CartContext.Provider
       value={{
         cart,
         addItemToCart,
+        deleteItemFromCart,
       }}
     >
       {children}
