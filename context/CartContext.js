@@ -54,6 +54,40 @@ export const CartProvider = ({ children }) => {
     setCartToState();
   };
 
+  const removeItemToCart = async ({
+    product,
+    name,
+    price,
+    image,
+    quantity = 1,
+  }) => {
+    const item = {
+      product,
+      name,
+      price,
+      image,
+      quantity,
+    };
+
+    const isItemExistIndex = cart.findIndex((i) => i.product === item.product);
+
+    let newCartItems;
+
+    if (isItemExistIndex !== -1) {
+      newCartItems = [...cart];
+      if (newCartItems[isItemExistIndex].quantity > 1) {
+        newCartItems[isItemExistIndex].quantity--;
+      } else {
+        newCartItems.splice(isItemExistIndex, 1);
+      }
+    } else {
+      newCartItems = [...cart, item];
+    }
+
+    localStorage.setItem("cart", JSON.stringify(newCartItems));
+    setCartToState(newCartItems);
+  };
+
   const deleteItemFromCart = (id) => {
     const newCartItems = cart?.filter((i) => i.product !== id);
     localStorage.setItem("cart", JSON.stringify(newCartItems));
@@ -65,6 +99,7 @@ export const CartProvider = ({ children }) => {
         cart,
         addItemToCart,
         deleteItemFromCart,
+        removeItemToCart,
       }}
     >
       {children}

@@ -12,7 +12,8 @@ function calculateSubtotal(cart) {
 }
 
 export default function Cart() {
-  const { addItemToCart, cart, deleteItemFromCart } = useContext(CartContext);
+  const { addItemToCart, cart, deleteItemFromCart, removeItemToCart } =
+    useContext(CartContext);
 
   const increaseQty = (cartItem) => {
     const newQty = cartItem?.quantity + 1;
@@ -27,7 +28,7 @@ export default function Cart() {
 
     if (newQty <= 0) return;
 
-    addItemToCart(item);
+    removeItemToCart(item);
   };
 
   const subtotal = calculateSubtotal(cart);
