@@ -22,7 +22,7 @@ To run Snicks locally on your machine, follow these steps:
 2. Navigate to the project directory:
 
    ```bash
-   cd snicks
+   cd totalitycorp-frontend-challenge
    ```
 
 3. Install project dependencies using pnpm:
